@@ -14,6 +14,7 @@
 		FBE842361E0CB1B800A2EFAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBE842341E0CB1B800A2EFAE /* LaunchScreen.storyboard */; };
 		FBE842411E0CB1B800A2EFAE /* calculation2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE842401E0CB1B800A2EFAE /* calculation2Tests.swift */; };
 		FBE8424C1E0CB1B800A2EFAE /* calculation2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE8424B1E0CB1B800A2EFAE /* calculation2UITests.swift */; };
+		FBE8425A1E0CBE7F00A2EFAE /* addnumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE842591E0CBE7F00A2EFAE /* addnumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		FBE842471E0CB1B800A2EFAE /* calculation2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calculation2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBE8424B1E0CB1B800A2EFAE /* calculation2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculation2UITests.swift; sourceTree = "<group>"; };
 		FBE8424D1E0CB1B800A2EFAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBE842591E0CBE7F00A2EFAE /* addnumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addnumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				FBE8422B1E0CB1B800A2EFAE /* AppDelegate.swift */,
 				FBE8422D1E0CB1B800A2EFAE /* ViewController.swift */,
+				FBE842591E0CBE7F00A2EFAE /* addnumber.swift */,
 				FBE8422F1E0CB1B800A2EFAE /* Main.storyboard */,
 				FBE842321E0CB1B800A2EFAE /* Assets.xcassets */,
 				FBE842341E0CB1B800A2EFAE /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE8425A1E0CBE7F00A2EFAE /* addnumber.swift in Sources */,
 				FBE8422E1E0CB1B800A2EFAE /* ViewController.swift in Sources */,
 				FBE8422C1E0CB1B800A2EFAE /* AppDelegate.swift in Sources */,
 			);
@@ -411,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = calculation2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.calculation2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -423,6 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = calculation2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.calculation2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
