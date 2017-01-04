@@ -10,14 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
     let displaynum = calcnumber()
     //ボタンを押した時の数
     var number : Int = 0
     var calcflag : Int = 0
+    var decimalflag : Int = 0
     var divnum : Double = 0
     var divnum1 : Double = 0
+    var decimal : Double = 0
+    var decimal1 : Double = 0
+    //表示用
+    var memoryope: String = ""
     
+    //入力した数値の確認
     @IBOutlet weak var display: UITextField!
+    //履歴を表示
+    @IBOutlet weak var calchist: UILabel!
+    
     // 数値削除
     @IBAction func clear(_ sender: Any) {
         display.text = ""
@@ -25,20 +35,31 @@ class ViewController: UIViewController {
         addnumber = 0
         calcnum = 0
         firstnumber = 0
+        memoryope = ""
+        calchist.text = String(memoryope)
     }
     //四則演算
     @IBAction func calcflag(_ sender: Any) {
+        if addnumber != 0{
+            memoryope += String(addnumber)
+        }
         switch (sender as AnyObject).tag {
         case 10:
             calcflag = 1
-            print(calcflag)
+            memoryope += "+"
+            calchist.text = String(memoryope)
         case 11:
             calcflag = 2
-            print(calcflag)
+            memoryope += "-"
+            calchist.text = String(memoryope)
         case 12:
              calcflag = 3
+             memoryope += "×"
+             calchist.text = String(memoryope)
         case 13:
              calcflag = 4
+             memoryope += "÷"
+             calchist.text = String(memoryope)
         default:
              calcflag = 0
         }
@@ -50,6 +71,26 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func pronum(_ sender: Any) {
+        switch (sender as AnyObject).tag {
+        case 14:
+            decimal = Double(addnumber)
+            display.text = String(decimal)
+        case 15:
+            print (addnumber)
+            print (decimal)
+            decimal /= 100.00
+            print (decimal)
+            display.text = String(decimal)
+            print(calcflag)
+        case 16:
+            addnumber *= -1
+        default:
+            calcflag = 0
+            print(calcflag)
+        }
+        display.text = String(addnumber)
+    }
     
     //結果出力
     @IBAction func calcresult(_ sender: Any) {
@@ -74,12 +115,14 @@ class ViewController: UIViewController {
             display.text = String(divnum)
             }
         }
+        memoryope += String(addnumber)
+        calchist.text = String(memoryope)
         cnt = 0
-        firstnumber = 0
         addnumber = 0
         calcnum = 0
     }
     @IBAction func test(_ sender: Any) {
+        //小数点がついていない場合
         switch (sender as AnyObject).tag {
         case 0:
             number = 0
@@ -107,6 +150,7 @@ class ViewController: UIViewController {
         cnt += 1
         addnumber = displaynum.displaynumber(number: number , digit : digit)
         display.text = String(addnumber)
+        calchist.text = String(memoryope)
     }
     
 
@@ -114,8 +158,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        // labelを初期化
+        calchist.text = ""
     }
 
     override func didReceiveMemoryWarning() {
