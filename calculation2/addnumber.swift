@@ -22,12 +22,13 @@ func ^^ (radix: Int, power: Int) -> Int {
 class calcnumber{
 
     var calcnumber : Int = 0
+    var elnumber : Int = 0
     var btncnt : Int = 0
     var roop : Int = 0
  
     
     //数を生成
-    func displaynumber (number : Int ,digit : Int ) -> Int{
+    func displaynumber (number : Int) -> Int{
         calcnum = number  + calcnum * 10
         return calcnum
     }
@@ -43,6 +44,28 @@ class calcnumber{
         cnt = 0
         addnumber = 0
         calcnum = 0
+    }
+    
+    //コードを読みやすくするために四則演算を検討中
+    //ここは足し算
+    func add (elnumber : Int) -> Int{
+        calcnumber += elnumber
+        return calcnumber
+    }
+    //ここは引き算
+    func sub (elnumber : Int) -> Int{
+        calcnumber -= elnumber
+        return calcnumber
+    }
+    //ここは掛け算
+    func multi (elnumber : Int) -> Int{
+        calcnumber *= elnumber
+        return calcnumber
+    }
+    //ここは割り算
+    func div (elnumber : Int) -> Int{
+        calcnumber /= elnumber
+        return calcnumber
     }
 
     
