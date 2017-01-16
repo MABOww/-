@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var webview: UIWebView!
+    //urlを規定
+     var url:String = "https://www.google.co.jp"
     
     let displaynum = calcnumber()
     //ボタンを押した時の数
@@ -51,7 +54,7 @@ class ViewController: UIViewController {
             }
         }
         
-        //事前に反映
+        //事前のフラグを反映
         if calcflag == 0{
             firstnumber += addnumber
         }else if calcflag == 1{
@@ -119,13 +122,13 @@ class ViewController: UIViewController {
              calcflag = 0
         }
         if decimalflag == 0{
-            display.text = String(0)
+            display.text = String(firstnumber)
             cnt = 0
             addnumber = 0
             calcnum = 0
         }else{
         //ここで小数点の計算を実施
-            display.text = String(0)
+            display.text = String(firstdecimal)
             cnt = 0
             addnumber = 0
             calcnum = 0
@@ -148,15 +151,23 @@ class ViewController: UIViewController {
             display.text = String(adddecimal)
             print(calcflag)
         case 16:
-            addnumber *= -1
+            if decimalflag == 0 {
+                firstnumber = addnumber
+                firstnumber *= -1
+                addnumber = 0
+            }else{
+                firstdecimal = adddecimal
+                firstdecimal *= -1
+                adddecimal = 0.0
+            }
         default:
             calcflag = 0
             print(calcflag)
         }
         if decimalflag == 0 {
-            display.text = String(addnumber)
+            display.text = String(firstnumber)
         }else {
-            display.text = String(adddecimal)
+            display.text = String(firstdecimal)
         }
     }
     
@@ -256,10 +267,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // labelを初期化
         calchist.text = ""
-        
+        //web画面を表示
+        loadURL()
         
     }
 
+    func loadURL() {
+        let requestURL = NSURL(string: url)
+        let request = NSURLRequest(url: requestURL! as URL)
+        webview.loadRequest(request as URLRequest)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
