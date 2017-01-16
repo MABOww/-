@@ -410,8 +410,8 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem systemItem="favorites" id="Fbi-fL-lgM"/>
-                                    <tabBarItem systemItem="more" id="eDl-hV-9ep"/>
+                                    <tabBarItem title="web" id="Fbi-fL-lgM" userLabel="web"/>
+                                    <tabBarItem title="memo" id="eDl-hV-9ep" userLabel="memo"/>
                                 </items>
                             </tabBar>
                         </subviews>
