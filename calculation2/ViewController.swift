@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var webview: UIWebView!
+    //@IBOutlet weak var webview: UIWebView!
     //urlを規定
      var url:String = "https://www.google.co.jp"
     
@@ -268,15 +268,15 @@ class ViewController: UIViewController {
         // labelを初期化
         calchist.text = ""
         //web画面を表示
-        loadURL()
+        //loadURL()
         
     }
 
-    func loadURL() {
-        let requestURL = NSURL(string: url)
-        let request = NSURLRequest(url: requestURL! as URL)
-        webview.loadRequest(request as URLRequest)
-    }
+//    func loadURL() {
+//        let requestURL = NSURL(string: url)
+//        let request = NSURLRequest(url: requestURL! as URL)
+//        webview.loadRequest(request as URLRequest)
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
