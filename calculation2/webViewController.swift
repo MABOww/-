@@ -11,7 +11,7 @@ import UIKit
 class webViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
-
+ 
     //urlを規定
     var url:String = "https://www.google.co.jp"
     

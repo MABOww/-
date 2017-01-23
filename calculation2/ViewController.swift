@@ -8,11 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController ,UITextFieldDelegate{
     
     //@IBOutlet weak var webview: UIWebView!
     //urlを規定
      var url:String = "https://www.google.co.jp"
+    
+    //メモ用
+    @IBOutlet weak var textfield: UITextField!
+    @IBAction func additem(_ sender: AnyObject) {
+        todolist.append(textfield.text!)
+        textfield.text = ""
+        UserDefaults.standard.set(todolist, forKey: "list")
+    }
     
     let displaynum = calcnumber()
     //ボタンを押した時の数
@@ -57,6 +65,7 @@ class ViewController: UIViewController {
         //事前のフラグを反映
         if calcflag == 0{
             firstnumber += addnumber
+            firstdecimal += adddecimal
         }else if calcflag == 1{
             if decimalflag == 0{
                 firstnumber += addnumber
@@ -142,19 +151,16 @@ class ViewController: UIViewController {
             decimalflag = 1
             adddecimal = Double(addnumber)
             firstdecimal = Double(firstdecimal)
-            display.text = String(adddecimal)
+            //display.text = String(adddecimal)
         case 15:
-            print (addnumber)
-            print (adddecimal)
-            adddecimal /= 100.00
+            adddecimal = Double(addnumber)
+            adddecimal *= 1.08
             print (adddecimal)
             display.text = String(adddecimal)
-            print(calcflag)
+            decimalflag = 1
         case 16:
             if decimalflag == 0 {
-                firstnumber = addnumber
-                firstnumber *= -1
-                addnumber = 0
+                addnumber *= -1
             }else{
                 firstdecimal = adddecimal
                 firstdecimal *= -1
@@ -165,9 +171,9 @@ class ViewController: UIViewController {
             print(calcflag)
         }
         if decimalflag == 0 {
-            display.text = String(firstnumber)
+            display.text = String(addnumber)
         }else {
-            display.text = String(firstdecimal)
+            display.text = String(adddecimal)
         }
     }
     
@@ -224,6 +230,8 @@ class ViewController: UIViewController {
         calcnum = 0
         calcflag = 0
     }
+    
+    
     @IBAction func test(_ sender: Any) {
         //小数点がついていない場合
         switch (sender as AnyObject).tag {
@@ -269,6 +277,8 @@ class ViewController: UIViewController {
         calchist.text = ""
         //web画面を表示
         //loadURL()
+        //メモ用
+        self.textfield.delegate = self
         
     }
 
@@ -281,6 +291,17 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //メモ用
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textfield.resignFirstResponder()
+        return true
+    }
+    
     
 
 
